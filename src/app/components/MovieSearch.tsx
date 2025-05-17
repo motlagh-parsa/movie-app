@@ -40,15 +40,16 @@ export default function MovieSearch() {
 
     return (
         <div className="mx-auto px-4 py-6 space-y-6">
-            <div className='grid grid-cols-12 mx-auto flex'>
+            <div
+                className="flex flex-col md:flex-row items-center md:space-x-4 space-y-4 md:space-y-0 w-full max-w-5xl mx-auto">
                 <input
                     type="text"
                     placeholder="Search movies..."
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    className="px-4 py-2 col-start-4 col-end-10 border border-gray-300 rounded-xl shadow-sm"
+                    className="w-full md:w-2/3 px-4 py-2 border border-gray-300 rounded-xl shadow-sm"
                 />
-                <div className="w-50 col-start-11">
+                <div className="w-full md:w-1/3">
                     <MultiSelect
                         options={genres}
                         selectedValues={selectedGenreIds}
@@ -57,19 +58,16 @@ export default function MovieSearch() {
                     />
                 </div>
             </div>
+
             <div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
-                <div className="gap-6">
-                    <div className="md:col-span-3">
-                        {loading ? (
-                            <p className="text-gray-500">Loading...</p>
-                        ) : (
-                            <MovieList
-                                movies={results}
-                                selectedGenreIds={selectedGenreIds}
-                            />
-                        )}
-                    </div>
-                </div>
+                {loading ? (
+                    <p className="text-gray-500">Loading...</p>
+                ) : (
+                    <MovieList
+                        movies={results}
+                        selectedGenreIds={selectedGenreIds}
+                    />
+                )}
             </div>
         </div>
     );

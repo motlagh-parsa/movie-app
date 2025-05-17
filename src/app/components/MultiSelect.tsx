@@ -37,7 +37,7 @@ export default function MultiSelect({
         <div className="relative" ref={dropdownRef}>
             <button
                 type="button"
-                className="w-full px-4 py-2 mb-4 border rounded-xl bg-gray-800 text-white text-left flex justify-between items-center"
+                className="w-full px-4 py-2 border rounded-xl bg-gray-800 text-white text-left flex justify-between items-center"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 {selectedValues.length > 0
