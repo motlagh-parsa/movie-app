@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import {fetchMovieById} from "@/app/lib/tmdb";
 
-type Props = {
+type PageProps = {
     params: {
         id: string;
     };
 };
 
-export default async function MovieDetailPage({params}: Props) {
+export default async function MovieDetailPage({ params }: PageProps) {
     const movie = await fetchMovieById(params.id);
 
     return (
